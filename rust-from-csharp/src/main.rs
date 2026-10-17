@@ -3,6 +3,8 @@ use sample_mod::sample_mod_fn;
 mod other_mod;
 mod sub_mod;
 
+mod lib;
+
 use other_mod::OtherModType;
 use sub_mod::sub_mod_func;
 
@@ -55,6 +57,27 @@ fn main() {
 
     sub_mod_func();
 
+    let people: [Person;3]  = [
+        Person::create("Alice", 25),
+        Person::create("Bob", 30),
+        Person::create("Charlie", 35),
+    ];
+
+    let ice_coffee_lovers: Vec<i32> =
+        people 
+        .into_iter()
+        .filter(|x |x.likes_ice_coffee && x.age >= 30)
+        .map(|x| x.age)
+        .collect();
+
+    let ice_coffee_lovers_count = ice_coffee_lovers.len();
+
+    print_result(ice_coffee_lovers_count);
+
+}
+
+fn print_result(result :usize) {
+    println!("Number of ice coffee lovers: {}", result);
 }
 
 fn print_num(num: &i32)  {
