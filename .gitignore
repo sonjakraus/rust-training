@@ -1,4 +1,4 @@
-target/*
+rust-from-csharp/target/*
 
-Cargo.lock
-Cargo.toml
+rust-from-csharp/Cargo.lock
+rust-from-csharp/Cargo.toml
